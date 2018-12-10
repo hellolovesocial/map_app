@@ -13,10 +13,9 @@ class Beer
 
   All = [
     Beer.new(35.660138, 139.707438, 'MING TEA', 'https://localplace.jp/t200340454/'),
-    Beer.new(35.661256, 139.698945, 'Gong Cha', 'https://www.gongcha.co.jp/')
-    # Beer.new(50.178162, 5.219879, 'Rochefort', 'http://en.wikipedia.org/wiki/Rochefort_Brewery'),
-    # Beer.new(51.284720, 4.656670, 'Westmalle', 'http://en.wikipedia.org/wiki/Westmalle_Brewery'),
-    # Beer.new(50.895942, 2.721262, 'Westvleteren', 'http://en.wikipedia.org/wiki/Westvleteren_Brewery'),
-    # Beer.new(51.298800, 5.488570, 'Achel', 'http://en.wikipedia.org/wiki/Achel_Brewery')
+    Beer.new(35.661256, 139.698945, 'Gong Cha', 'https://www.gongcha.co.jp/'),
+    Beer.new(35.660524, 139.698437, 'CoCo都可', 'https://cocofreshtokyo.amebaownd.com/'),
+    Beer.new(35.660770, 139.696850, 'Piyanee', 'http://www.piyanee.com/'),
+    Beer.new(35.659810, 139.695270, 'THE ALLEY', 'http://www.the-alley.jp/')
   ]
 end

@@ -15,7 +15,7 @@ class BeerMapController < UIViewController
     view.frame = tabBarController.view.bounds
 
     # Center on Brussels.
-    region = MKCoordinateRegionMake(CLLocationCoordinate2D.new(35.658033, 139.701635), MKCoordinateSpanMake(0.01, 0.01))
+    region = MKCoordinateRegionMake(CLLocationCoordinate2D.new(35.658033, 139.701635), MKCoordinateSpanMake(0.02, 0.02))
     self.view.setRegion(region)
 
     Beer::All.each { |beer| self.view.addAnnotation(beer) }
