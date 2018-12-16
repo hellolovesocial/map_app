@@ -1,7 +1,7 @@
-class BeerListController < UITableViewController
+class BobaListController < UITableViewController
   def init
     if super
-      self.tabBarItem = UITabBarItem.alloc.initWithTitle('List', image:UIImage.imageNamed('list.png'), tag:1)
+      self.tabBarItem = UITabBarItem.alloc.initWithTitle('BobaList', image:UIImage.imageNamed('list.png'), tag:1)
     end
     self
   end
@@ -15,7 +15,7 @@ class BeerListController < UITableViewController
   end    
 
   def tableView(tableView, numberOfRowsInSection:section)
-    Beer::All.size
+    Boba::All.size
   end
 
   CELLID = 'CellIdentifier'
@@ -27,15 +27,19 @@ class BeerListController < UITableViewController
       cell
     end
 
-    beer = Beer::All[indexPath.row]
-    cell.textLabel.text = beer.title
+    # boba = Boba::All[indexPath.row]
+    # cell.textLabel.text = .title
+    # cell
+
+    boba = Boba::All[indexPath.row]
+    cell.textLabel.text = boba.title
     cell
   end
 
   def tableView(tableView, accessoryButtonTappedForRowWithIndexPath:indexPath)
-    beer = Beer::All[indexPath.row]
-    controller = UIApplication.sharedApplication.delegate.beer_details_controller
+    boba = Boba::All[indexPath.row]
+    controller = UIApplication.sharedApplication.delegate.boba_details_controller
     navigationController.pushViewController(controller, animated:true)
-    controller.showDetailsForBeer(beer)
+    controller.showDetailsForBoba(boba)
   end
 end

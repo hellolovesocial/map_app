@@ -1,7 +1,7 @@
-class BeerMapController < UIViewController
+class BobaMapController < UIViewController
   def init
     if super
-      self.tabBarItem = UITabBarItem.alloc.initWithTitle('Map', image:UIImage.imageNamed('map.png'), tag:1)
+      self.tabBarItem = UITabBarItem.alloc.initWithTitle('BaboMap', image:UIImage.imageNamed('map.png'), tag:1)
     end
     self
   end
@@ -18,7 +18,7 @@ class BeerMapController < UIViewController
     region = MKCoordinateRegionMake(CLLocationCoordinate2D.new(35.658033, 139.701635), MKCoordinateSpanMake(0.02, 0.02))
     self.view.setRegion(region)
 
-    Beer::All.each { |beer| self.view.addAnnotation(beer) }
+    Boba::All.each { |boba| self.view.addAnnotation(boba) }
   end
 
   def viewWillAppear(animated)
@@ -26,11 +26,11 @@ class BeerMapController < UIViewController
   end    
 
   ViewIdentifier = 'ViewIdentifier'
-  def mapView(mapView, viewForAnnotation:beer)
+  def mapView(mapView, viewForAnnotation:boba)
     if view = mapView.dequeueReusableAnnotationViewWithIdentifier(ViewIdentifier)
-      view.annotation = beer
+      view.annotation = boba
     else
-      view = MKPinAnnotationView.alloc.initWithAnnotation(beer, reuseIdentifier:ViewIdentifier)
+      view = MKPinAnnotationView.alloc.initWithAnnotation(boba, reuseIdentifier:ViewIdentifier)
       view.canShowCallout = true
       view.animatesDrop = true
       button = UIButton.buttonWithType(UIButtonTypeDetailDisclosure)
@@ -42,10 +42,10 @@ class BeerMapController < UIViewController
 
   def showDetails(sender)
     if view.selectedAnnotations.size == 1
-      beer = view.selectedAnnotations[0]
-      controller = UIApplication.sharedApplication.delegate.beer_details_controller
+      boba = view.selectedAnnotations[0]
+      controller = UIApplication.sharedApplication.delegate.boba_details_controller
       navigationController.pushViewController(controller, animated:true)
-      controller.showDetailsForBeer(beer)
+      controller.showDetailsForBoba(boba)
     end
   end
 end
